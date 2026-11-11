@@ -2,7 +2,7 @@ from pathlib import Path
 import pandas as pd
 
 # Finds the data file no matter where you run the code from
-RAW_PATH = Path(__file__).resolve().parent.parent / "data" / "raw" / "data.txt"
+RAW_PATH = Path(__file__).resolve().parent.parent / "data" / "raw" / "data.csv"
 
 COLS = [
     "lever_position",
@@ -25,12 +25,6 @@ COLS = [
     "gt_turbine_decay_state",
 ]
 
-
 def load_raw(path=RAW_PATH):
-    """Read the raw data file and name the columns."""
-    return pd.read_csv(path, sep=r"\s+", header=None, names=COLS)
-
-
-if __name__ == "__main__":
-    df = load_raw()
-    print(df.shape)
+    #Read the raw data file and name the columns.
+    return pd.read_csv(path, header=0, names=COLS)

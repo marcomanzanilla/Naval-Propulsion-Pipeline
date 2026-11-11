@@ -9,8 +9,7 @@ def train_models(X_train, y_train, seed=42):
         "baseline": DummyRegressor(strategy="mean"),
         "linear regression": LinearRegression(),
         "decision tree": DecisionTreeRegressor(random_state=seed),
-        "random forest": RandomForestRegressor(n_estimators=100,
-                                               random_state=seed, n_jobs=-1),
+        "random forest": RandomForestRegressor(n_estimators=100, random_state=seed, n_jobs=-1),
     }
     for model in models.values():
         model.fit(X_train, y_train)
@@ -18,7 +17,7 @@ def train_models(X_train, y_train, seed=42):
 
 
 if __name__ == "__main__":
-    from sklearn.metrics import root_mean_squared_error
+    from sklearn.metrics import (root_mean_squared_error, mean_absolute_error)
     from load_data import load_raw
     from clean import clean
     from features import split_data
@@ -28,7 +27,9 @@ if __name__ == "__main__":
 
     models = train_models(X_train, y_train)
 
+    print("Each pair below is (compressor, turbine)")
     for name, model in models.items():
-        rmse = root_mean_squared_error(y_test, model.predict(X_test),
-                                       multioutput="raw_values")
-        print(f"{name:20s} RMSE (compressor, turbine): {rmse.round(5)}")
+        pred = model.predict(X_test)
+        rmse = root_mean_squared_error(y_test, pred, multioutput="raw_values")
+        mae = mean_absolute_error(y_test, pred, multioutput="raw_values")
+        print(f"{name:20s} RMSE: {rmse.round(5)}  MAE: {mae.round(5)}")

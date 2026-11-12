@@ -1,0 +1,5 @@
+,compressor_rmse,turbine_rmse,compressor_mae,turbine_mae,compressor_improvement_pct,turbine_improvement_pct
+baseline,0.01467,0.00755,0.01272,0.00654,0.0,0.0
+linear regression,0.00687,0.00343,0.00568,0.00267,53.12747,54.5389
+decision tree,0.0016,0.00129,0.00112,0.0008,89.08421,82.87841
+random forest,0.00087,0.00065,0.00047,0.00033,94.08643,91.45625

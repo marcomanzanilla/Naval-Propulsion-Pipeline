@@ -19,6 +19,8 @@ The dataset has 11,934 rows, 16 sensor columns, and 2 targets, being the compres
 ## 4. Preprocessing
 The data was split 80/20 at random (using seed 42) into training and test sets. No scaling or encoding was done since all columns are numeric and the tree-based models don't need scaling. The lever position were kept as an input so the models can compare readings at the same throttle setting. No features were used.
 
+Going to do testing with different seeds/cross validation.
+
 ## 5. Modeling strategy
 Four models were chosen in advance and all are reported, This was a baseline that predicts the training average (the floor), linear regression (simple, interpretable), a decision tree (flexible but high variance), and a random forest (100 averaged trees, which keeps the flexibility and reduces variance). All of them use default settings with no hyperparameter tuning.
 
@@ -34,7 +36,9 @@ Four models were chosen in advance and all are reported, This was a baseline tha
 
 *The test set consisted of 2,387 rows (20%) that were held out before training. Improvement is the reduction in RMSE compared with the baseline. Lower error is better.*
 
-The ranking is the same under RMSE and MAE. Linear regression halves the baseline error but can't follow the curved relationships, such as how fuel flow rises faster at higher speeds. The forest roughly halves the single tree's error. Trade-off: the forest is more complex and slower to train than the tree, but [time one run and state it here], so the accuracy gain justified the cost.
+The ranking is the same under RMSE and MAE. Linear regression halves the baseline error but can't follow the curved relationships, such as how fuel flow rises faster at higher speeds. The random forest roughly halves the single tree's error. However, the forest is more complex and slower to train than the tree.
+
+Need to test and time?
 
 ## 7. Error analysis
 figure 06 to find where predictions stray from the actual values by target and by throttle setting.

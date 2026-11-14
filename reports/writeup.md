@@ -66,7 +66,7 @@ Holding out a throttle setting shows something very important though. The random
 
 The decision tree and XGBoost also failed to beat the baseline on any throttle setting for either target. XGBoost came closest on the compressor (around 17% worse than the baseline).
 
-Linear regression was the only model to beat the baseline on most unseen settings (6 of 9 for the compressor, 5 of 9 for the turbine), but it is very unstable. Its error on the highest throttle setting is far above everything else, which is why its standard deviation is so large.
+Linear regression was the only model to beat the baseline on most unseen settings (6 of 9 for the compressor, 5 of 9 for the turbine), but it is very unstable. Its error on the highest throttle setting is far above everything else, which is why its standard deviation is so large. Because of that one setting, its average error is still above the baseline's (about 74% worse for the compressor and 17% worse for the turbine).
 
 ![RMSE by held-out throttle setting](figures/10_error_by_unseen_throttle.png)
 
@@ -116,5 +116,7 @@ However, the importance of each sensor is combined across both targets, so we do
 
 ## References
 Coraddu, A., Oneto, L., Ghio, A., Savio, S., Anguita, D., & Figari, M. (2014). Condition Based Maintenance of Naval Propulsion Plants [Dataset]. UCI Machine Learning Repository. https://doi.org/10.24432/C5K31K.
+
+Coraddu, A., Oneto, L., Ghio, A., Savio, S., Anguita, D., & Figari, M. (2016). Machine learning approaches for improving condition-based maintenance of naval propulsion plants. Proceedings of the Institution of Mechanical Engineers, Part M: Journal of Engineering for the Maritime Environment, 230(1), 136-153. https://doi.org/10.1177/1475090214540874
 
 Kaggle copy of the dataset: Predictive Maintenance: Naval Vessel Condition, Kaggle. https://www.kaggle.com/datasets/thedevastator/improving-naval-vessel-condition-through-machine/data

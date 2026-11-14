@@ -26,5 +26,6 @@ COLS = [
 ]
 
 def load_raw(path=RAW_PATH):
-    #Read the raw data file and name the columns.
+    # Read the raw data file and name the columns.
+    # The Kaggle CSV has a leading index column. With 18 names for 19 columns, pandas uses it as the row index.
     return pd.read_csv(path, header=0, names=COLS)

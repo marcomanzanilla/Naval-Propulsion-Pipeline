@@ -4,6 +4,10 @@ from src.features import split_data
 from src.train import train_models
 from src.evaluate import evaluate
 
+# For validate.py
+import subprocess
+import sys
+from pathlib import Path
 
 def main():
     #1. Loading raw data
@@ -30,3 +34,8 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+    if "--validate" in sys.argv:
+        print("Running cross-validation...")
+        validate_script = Path(__file__).resolve().parent / "src" / "validate.py"
+        subprocess.run([sys.executable, str(validate_script)], check=True)

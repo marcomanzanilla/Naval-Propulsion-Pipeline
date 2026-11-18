@@ -1,6 +1,6 @@
 # Predicting Gas Turbine Wear from Sensor Data
 
-A machine learning pipeline that predicts the wear of a naval gas turbine's compressor and turbine using 14 sensor readings from a propulsion plant simulator. It compares five regression models and checks them with two kinds of validation, random cross-validation and leave-one-throttle-out.
+This is a machine learning pipeline that predicts the wear of a naval gas turbine's compressor and turbine using 14 sensor readings from a propulsion plant simulator. It compares five regression models and checks them with two kinds of validation, random cross-validation and leave-one-throttle-out.
 
 ## Key findings
 
